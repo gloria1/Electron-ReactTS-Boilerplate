@@ -11,6 +11,22 @@ npx create-react-electron-app my-app
 ```
 This command scaffolds a new Electron application using our boilerplate in the my-app directory. Dive into your project folder and start building right away!
 
+## Starting Development
+
+Start the app in the `dev` environment:
+
+```bash
+npm start
+```
+
+## Packaging for Production
+
+To package apps for the local platform:
+
+```bash
+npm run package
+```
+
 ## Technologies and Usage
 
 Our boilerplate is packed with the latest and greatest in web and desktop application development technologies:
