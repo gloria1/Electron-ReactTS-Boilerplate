@@ -1,25 +1,26 @@
 import { BrowserWindow } from 'electron';
 import emitToClient from '../IPC/EmitToClient';
 import { ErrorMessage } from '../../shared/Types/ErrorMessage';
-import { ClockStatus } from '../../shared/Types/ClockStatus';
-import SerialPortManager from '../Serial/SerialManager';
-// Functions to invoke when arrived ipc request for client or or when need to emit to client
-export function handleClientRequestStarting(
-  browserWindow: BrowserWindow,
-): void {
-  SerialPortManager.getInstance({ browserWindow }).detectClock();
-}
 
-export function handleStatusReport(
-  browserWindow: BrowserWindow,
-  status: ClockStatus,
-): void {
-  emitToClient(browserWindow, 'clock_status', status);
-}
+let randomNumber: number;
 
 export function handleErrorMessage(
   browserWindow: BrowserWindow,
-  data: ErrorMessage,
+  data: ErrorMessage
 ): void {
   emitToClient(browserWindow, 'error_message', data);
+}
+
+export function handleGenerateNumber() {
+  randomNumber = Math.floor(Math.random() * 100) + 1;
+}
+
+export function handleCheckGuess(guessedNumber: number): string {
+  if (guessedNumber > randomNumber) {
+    return 'go lower';
+  }
+  if (guessedNumber < randomNumber) {
+    return 'go higher';
+  }
+  return 'correct';
 }

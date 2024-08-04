@@ -28,17 +28,23 @@ export default function setIpcRoutes(
       } catch (exc: any) {
         console.log(
           // eslint-disable-next-line prettier/prettier
-          `Exception while handling exception. ${createStackTraceFromException(exc)}`
+          `Exception while handling exception. ${createStackTraceFromException(
+            exc
+          )}`
         );
       }
       return null;
     }
   }
 
-  registerEvent('start_monitor', ipcMain, async () => {
+  registerEvent('generate-number', ipcMain, async () => {
     await forwardErrorsToClient(async () =>
-      ClientEventHandlers.handleClientRequestStarting(browserWindow)
+      ClientEventHandlers.handleGenerateNumber()
     );
     return null;
+  });
+
+  registerEvent('check-guess', ipcMain, async (param: number) => {
+    return ClientEventHandlers.handleCheckGuess(param);
   });
 }

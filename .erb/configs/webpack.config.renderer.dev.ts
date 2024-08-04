@@ -60,6 +60,13 @@ const configuration: webpack.Configuration = {
     },
   },
 
+  resolve: {
+    fallback: {
+      fs: false,
+      path: require.resolve('path-browserify'),
+    },
+  },
+
   module: {
     rules: [
       {
@@ -165,8 +172,8 @@ const configuration: webpack.Configuration = {
   ],
 
   node: {
-    __dirname: false,
-    __filename: false,
+    __dirname: true,
+    __filename: true,
   },
 
   devServer: {

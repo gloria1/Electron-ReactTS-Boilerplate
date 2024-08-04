@@ -7,8 +7,8 @@ export default function registerEvent<T extends keyof IPCMethods>(
   // eslint-disable-next-line no-undef
   ipcMain: Electron.IpcMain,
   handler: (
-    param: IPCMethods[T]['request'],
-  ) => Promise<IPCMethods[T]['response']>,
+    param: IPCMethods[T]['request']
+  ) => Promise<IPCMethods[T]['response']>
 ) {
   type Request = IPCMethods[T]['request'];
   type Response = IPCMethods[T]['response'];
@@ -16,6 +16,6 @@ export default function registerEvent<T extends keyof IPCMethods>(
     method,
     async (event: IpcMainInvokeEvent, param: Request): Promise<Response> => {
       return handler(param);
-    },
+    }
   );
 }

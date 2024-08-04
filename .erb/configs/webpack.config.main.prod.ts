@@ -16,6 +16,8 @@ checkNodeEnv('production');
 deleteSourceMaps();
 
 const configuration: webpack.Configuration = {
+  externals: ['serialport'],
+
   devtool: 'source-map',
 
   mode: 'production',
@@ -31,7 +33,7 @@ const configuration: webpack.Configuration = {
     path: webpackPaths.distMainPath,
     filename: '[name].js',
     library: {
-      type: 'umd',
+      type: 'commonjs2',
     },
   },
 

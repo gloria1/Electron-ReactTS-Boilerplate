@@ -12,7 +12,6 @@ import path from 'path';
 import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
-import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import setIpcRoutes from './startup/ipc.startup';
 
@@ -56,19 +55,10 @@ const createWindow = async () => {
     await installExtensions();
   }
 
-  const RESOURCES_PATH = app.isPackaged
-    ? path.join(process.resourcesPath, 'assets')
-    : path.join(__dirname, '../../assets');
-
-  const getAssetPath = (...paths: string[]): string => {
-    return path.join(RESOURCES_PATH, ...paths);
-  };
-
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
     height: 728,
-    icon: getAssetPath('icon.png'),
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
@@ -77,6 +67,8 @@ const createWindow = async () => {
   });
 
   mainWindow.loadURL(resolveHtmlPath('index.html'));
+
+  mainWindow.removeMenu();
 
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
@@ -95,9 +87,6 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
-
   // Open urls in the user's browser
   mainWindow.webContents.setWindowOpenHandler((edata) => {
     shell.openExternal(edata.url);
@@ -109,12 +98,7 @@ const createWindow = async () => {
   new AppUpdater();
 };
 
-/**
- * Add event listeners...
- */
-
 app.on('window-all-closed', () => {
-  // Respect the OSX convention of having the application in memory even
   // after all windows have been closed
   if (process.platform !== 'darwin') {
     app.quit();

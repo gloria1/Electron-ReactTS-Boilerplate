@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  overflow: auto;
+}
+
+.body-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes up the full viewport height */
+  background-color: #e9ecef; /* Optional: Set a background color for better visibility */
+  margin: 0; /* Remove default margin */
+}

@@ -1,16 +1,25 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 import invokeServer from '../IPC/InvokeServer';
-// Used to defined handlers to user request
 
 export type UserActionHandlers = {
-  handleStartMonitor: () => void;
+  handleGenerateNumber: () => void;
+  handleCheckGuess: (guessedNumber: number) => any;
 };
 
 export const useUserActionHandlers = (): UserActionHandlers => {
-  const handleStartMonitor = () => {
-    invokeServer('start_monitor', null);
+  const handleGenerateNumber = async () => {
+    await invokeServer('generate-number', null);
+  };
+
+  const handleCheckGuess = async (guessedNumber: number) => {
+    const hint = await invokeServer('check-guess', guessedNumber);
+    return hint;
   };
 
   return {
-    handleStartMonitor,
+    handleGenerateNumber,
+    handleCheckGuess,
   };
 };
