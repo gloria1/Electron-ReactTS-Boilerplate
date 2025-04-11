@@ -1,0 +1,6 @@
+
+try {
+  process.dlopen(module, require("path").join(__dirname, __webpack_public_path__, "c1cfb5f288f2bb02a3476261170cc474.node"));
+} catch (error) {
+  throw new Error('node-loader:\n' + error);
+}

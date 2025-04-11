@@ -4,7 +4,7 @@ import '../Styles/GuessHeader.css';
 export default function GuessHeader() {
   let keys: number = 0;
   const messages: string[] = [
-    'I am thinking of a number between 1-100.',
+    'I am thinking of a number between 1-100. mod',
     'Can you guess it?',
   ];
   return (

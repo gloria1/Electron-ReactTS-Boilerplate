@@ -15,6 +15,12 @@ import log from 'electron-log';
 import { resolveHtmlPath } from './util';
 import setIpcRoutes from './startup/ipc.startup';
 
+
+const cl = console.log
+cl('msg1')
+
+
+
 class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';

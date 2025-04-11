@@ -1,0 +1,13 @@
+
+source repo: https://github.com/AviadCohen24/Electron-ReactTS-Boilerplate/tree/main
+
+this seems to be a variant of the electron-react-boilerplate at https://electron-react-boilerplate.js.org
+but it works - breakpoints work, output appears in vscode debug console when i launch via vscode
+not sure what else may be different from the main electron-react-boilerplate...
+
+two changes:
+    added launch.json based on the one in the main electron-react-boilerplate
+    changed package.json "devEngines" property name to "engines" per https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/3648
+
+
+
