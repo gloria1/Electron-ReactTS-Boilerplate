@@ -10,12 +10,6 @@ things to learn about
 
 
 
-upgrade packages SELECTIVELY
-    one at a time
-    test each, commit if working
-    
-
-
 
 
 directions to build out

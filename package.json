@@ -165,7 +165,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "mini-css-extract-plugin": "^2.7.6",
     "node-loader": "^2.0.0",
-    "prettier": "^2.8.0",
+    "prettier": "^3.5.3",
     "react-refresh": "^0.17.0",
     "react-test-renderer": "^19.1.0",
     "rimraf": "^5.0.1",
