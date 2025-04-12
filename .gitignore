@@ -1,3 +1,11 @@
+
+# ADDED BY ME
+package-lock.json
+dll/
+
+
+# FROM BOILERPLATE
+
 .DS_Store
 .env
 .gclient_done
