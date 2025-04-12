@@ -65,6 +65,9 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 728,
+    x: 0,
+    y: 0,
+    acceptFirstMouse: true,  // in macos, whether clicking when inactive passes the click to app after activating
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')

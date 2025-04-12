@@ -1,0 +1,44 @@
+
+things to learn about
+    ipc/messaging - the two types and what each is good for
+        one way, two way, onetime vs stream
+        difference from websockets?
+    sharing info across main/renderer - preload
+    electron apis - https://www.electronjs.org/docs/latest/api/app
+        main process
+        renderer
+
+
+
+directions to build out
+    make examples to learn about above topics
+        message transport
+            method 1
+            method 2
+        preload - shared context
+    make the renderer app = viewer
+        initially, main doesn't do anything, renderer is just the same as viewer in a browser
+    factor message-passing architecture
+        goal is for same messages to pass over websocket or electron messaging
+        abstract out of websocket
+            app messages
+            connection info (type of conn, id for other end, state, settings (reconnect, protocol, address etc.))
+        get my websocket conns working as before using the new data structures
+        then set up renderer<->main message passing
+        then app messages can travel over either websocket or electron message transport
+    mechanism to pull and display little snitch log-traffic output
+        renderer will sent start/stop commands
+        main child process to execute the log-traffic command
+            node child process, or the electron child process API?
+        main stores captured traffic
+        main pushes to renderer as received
+        mechanism to keep traffic captured from growing endlessly
+            setting for how much history to hold (time based? number of lines?)
+            setting for which traffic to capture (all, only certain apps, IP ranges, domains?)
+    then move functionality over to main?
+        re-cast DnDApp to connect to main, then main connects to server, browser extension background
+        holder of long-term state for crs, phis, config?
+            pros/cons?  do we want to allow for multiple renderer windows?  if so, how to keep them in sync?
+            cons
+                another layer of message passing
+                state in more than one place
