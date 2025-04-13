@@ -1,0 +1,13 @@
+
+@top HeaderList { header* }
+
+header { Type " - " Name ": " Value end}
+
+@tokens {
+    Type { "asoriginal" | "final     " }
+    Name { ![:]+ }
+    Value { ![\n]+ }
+    end { "\n" | @eof }
+}
+
+

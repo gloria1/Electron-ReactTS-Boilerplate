@@ -1,0 +1,125 @@
+
+
+.splitter-layout {
+  /*
+    COMMENTING OUT
+      for some reason, with position: absolute, the height/width: 100% attributes are not calculating
+      their values as a % of the immediate parent - i don't know what they are taking a % of
+      with this commented out, things seem to work as i intend, i.e., the SplitterLayout component is 
+      sized at 100% of its immediate parent
+    position: absolute;
+  */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.splitter-layout .layout-pane {
+  position: relative;
+  flex: 0 0 auto;
+  overflow: auto;
+}
+
+.splitter-layout .layout-pane.layout-pane-primary {
+  flex: 1 1 auto;
+}
+
+.splitter-layout > .layout-splitter {
+  flex: 0 0 auto;
+  width: 15px;
+  
+  height: 100%;
+  
+  cursor: col-resize;
+  background-color: blue;
+}
+
+.splitter-layout .layout-splitter:hover {
+  background-color: red;
+}
+
+.splitter-layout.layout-changing {
+  cursor: col-resize;
+}
+
+.splitter-layout.layout-changing > .layout-splitter {
+  background-color: red;
+}
+
+.splitter-layout.splitter-layout-vertical {
+  flex-direction: column;
+}
+
+.splitter-layout.splitter-layout-vertical.layout-changing {
+  cursor: row-resize;
+}
+
+.splitter-layout.splitter-layout-vertical > .layout-splitter {
+  width: 100%;
+  height: 15px;
+  cursor: row-resize;
+}
+
+
+
+/*
+
+  BELOW IS ORIGINAL CSS FROM THE react-splitter-layout PROJECT
+
+.splitter-layout {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.splitter-layout .layout-pane {
+  position: relative;
+  flex: 0 0 auto;
+  overflow: auto;
+}
+
+.splitter-layout .layout-pane.layout-pane-primary {
+  flex: 1 1 auto;
+}
+
+.splitter-layout > .layout-splitter {
+  flex: 0 0 auto;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  background-color: #ccc;
+}
+
+.splitter-layout .layout-splitter:hover {
+  background-color: #bbb;
+}
+
+.splitter-layout.layout-changing {
+  cursor: col-resize;
+}
+
+.splitter-layout.layout-changing > .layout-splitter {
+  background-color: #aaa;
+}
+
+.splitter-layout.splitter-layout-vertical {
+  flex-direction: column;
+}
+
+.splitter-layout.splitter-layout-vertical.layout-changing {
+  cursor: row-resize;
+}
+
+.splitter-layout.splitter-layout-vertical > .layout-splitter {
+  width: 100%;
+  height: 4px;
+  cursor: row-resize;
+}
+
+*/

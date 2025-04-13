@@ -1,0 +1,21 @@
+
+@top patternList { line+ }
+
+line { pattern Comment  }
+
+nonComment { pattern  }
+
+pattern { Domain | Host | Regex }
+
+@tokens {
+    separator { "," $[ ]*}
+    hostChar { $[a-zA-Z0-9-] }
+    hostCharOrDot { hostChar | "." }
+    Domain { "."      (hostCharOrDot* hostChar)? }
+    Host   { hostChar (hostCharOrDot* hostChar)? }
+    Regex  { ![#, \n]+ }
+    Comment { "#" ![\n]* }
+    linesep { "\n" }
+
+    @precedence{ Domain, Host, Regex }
+}

@@ -11,6 +11,15 @@ things to learn about
 
 
 directions to build out
+    transplant viewer to here
+        drop code in - DONE
+        problems:
+            does not connect to server on lblack2 - cert auth invalid
+        --> go back and make sure react-proj-3 still works in old project
+                    server - running locally
+                    viewer
+
+
     make examples to learn about above topics
         message transport
             method 1

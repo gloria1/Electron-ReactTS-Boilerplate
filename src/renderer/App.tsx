@@ -7,14 +7,28 @@ import {
 } from './hooks/userActionHandlers.hook';
 
 import { Button } from '@blueprintjs/core'
+import AppView from './viewer/vwr-App';
 
 export default function App() {
   const userActionHandlers: UserActionHandlers = useUserActionHandlers();
   useServerEventHandlers();
   return (
     <div className="body-container">
-      <Button>BP BUTTON</Button>
+      <AppView/>
+    </div>
+  );
+}
+
+
+/* original version
+export default function App() {
+  const userActionHandlers: UserActionHandlers = useUserActionHandlers();
+  useServerEventHandlers();
+  return (
+    <div className="body-container">
       <GuessTheNumber userActionHandlers={userActionHandlers} />
     </div>
   );
 }
+
+*/
