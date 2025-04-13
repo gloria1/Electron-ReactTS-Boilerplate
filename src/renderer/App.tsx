@@ -6,11 +6,14 @@ import {
   useUserActionHandlers,
 } from './hooks/userActionHandlers.hook';
 
+import { Button } from '@blueprintjs/core'
+
 export default function App() {
   const userActionHandlers: UserActionHandlers = useUserActionHandlers();
   useServerEventHandlers();
   return (
     <div className="body-container">
+      <Button>BP BUTTON</Button>
       <GuessTheNumber userActionHandlers={userActionHandlers} />
     </div>
   );
