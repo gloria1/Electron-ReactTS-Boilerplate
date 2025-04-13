@@ -18,7 +18,7 @@ import setIpcRoutes from './startup/ipc.startup';
 
 const cl = console.log
 cl('msg1')
-
+cl('msg2')
 
 
 class AppUpdater {
