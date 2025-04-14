@@ -192,7 +192,7 @@ export class DnDApp {
     else {
       hostToUse = localStorage.getItem(this.localStorageIdPrefix+'serverHost')
       //cl(`DnDApp constructor got serverHost ${hostToUse} from localStorage`)
-      if (hostToUse === null) hostToUse = 'trafficcontrol'
+      if (hostToUse === null) hostToUse = 'lblack2'
     }
 
     this.server = {

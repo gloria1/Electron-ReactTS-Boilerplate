@@ -63,8 +63,8 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: 1724,
+    height: 2128,
     x: 0,
     y: 0,
     acceptFirstMouse: true,  // in macos, whether clicking when inactive passes the click to app after activating
