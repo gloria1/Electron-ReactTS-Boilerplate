@@ -9,6 +9,34 @@ things to learn about
         renderer
 
 
+SET UP ENVIRONMENT WHERE VIEWER WILL EVENTUALLY RUN
+
+    FIRST GET BLUEPRINT TO RENDER PROPERLY
+        CSS NOT BEING RECOGNIZED?
+        SEE ERRORS IN NODE_MODULES/BLUEPRINT SOURCE .TSX FILES.....
+
+
+
+    INSTALL PACKAGES ONE BY ONE AND GET THEM WORKING
+        MOBX/MOBX-REACT
+            create some simple react-ivity
+        BLUEPRINT
+        BLUEPRINT TABLE
+            render a simple table
+        BLUEPRINT POPOVER (THE NEWEST WAY - NO SEPARATE POPOVER PACKAGE)
+        UIW-REACT-CODEMIRROR / CODEMIRROR 6
+        CODEMIRROR-RELATED PACKAGES (E.G. @CODEMIRROR/LANG-HTML)
+        LODASH
+        UUID
+        MD5
+        @types/harformat
+
+    THEN TRY TO GET JUST AN EMPTY DNDAPP GOING
+    THEN ADD EMPTY VWR-APP
+        APP CONTROLS
+        SERVER CONN
+
+
 
 directions to build out
     make examples to learn about above topics

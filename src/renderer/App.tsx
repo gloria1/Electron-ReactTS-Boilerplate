@@ -13,7 +13,7 @@ export default function App() {
   useServerEventHandlers();
   return (
     <div className="body-container">
-      <Button>BP BUTTON</Button>
+      <Button intent='danger'>BP BUTTON</Button>
       <GuessTheNumber userActionHandlers={userActionHandlers} />
     </div>
   );
