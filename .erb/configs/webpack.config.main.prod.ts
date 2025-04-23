@@ -15,6 +15,8 @@ import deleteSourceMaps from '../scripts/delete-source-maps';
 checkNodeEnv('production');
 deleteSourceMaps();
 
+console.log('>>>>> STARTED WEBPACK.CONFIG.MAIN.PROD <<<<<<')
+
 const configuration: webpack.Configuration = {
   externals: ['serialport'],
 

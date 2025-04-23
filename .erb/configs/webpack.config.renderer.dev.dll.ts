@@ -14,6 +14,8 @@ checkNodeEnv('development');
 
 const dist = webpackPaths.dllPath;
 
+console.log('>>>>> STARTED WEBPACK.CONFIG.RENDERER.DEV.DLL <<<<<<')
+
 const configuration: webpack.Configuration = {
   context: webpackPaths.rootPath,
 

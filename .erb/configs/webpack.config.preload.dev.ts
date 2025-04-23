@@ -12,6 +12,8 @@ if (process.env.NODE_ENV === 'production') {
   checkNodeEnv('development');
 }
 
+console.log('>>>>> STARTED WEBPACK.CONFIG.PRELOAD <<<<<<')
+
 const configuration: webpack.Configuration = {
   devtool: 'inline-source-map',
 

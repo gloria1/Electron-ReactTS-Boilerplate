@@ -17,6 +17,8 @@ if (process.env.NODE_ENV === 'production') {
   checkNodeEnv('development');
 }
 
+console.log('>>>>> STARTED WEBPACK.CONFIG.RENDERER (NOT .DLL) <<<<<<')
+
 const port = process.env.PORT || 1212;
 const manifest = path.resolve(webpackPaths.dllPath, 'renderer.json');
 const skipDLLs =
