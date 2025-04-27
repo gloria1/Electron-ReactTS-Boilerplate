@@ -11,13 +11,16 @@ import baseConfig from './webpack.config.base';
 import webpackPaths from './webpack.paths';
 import checkNodeEnv from '../scripts/check-node-env';
 
+
+const cl = console.log
+cl(chalk.black.bgGreen('>>>>> STARTED WEBPACK.CONFIG.RENDERER.DEV.TS (NOT .DLL) <<<<<<'))
+
+
 // When an ESLint server is running, we can't set the NODE_ENV so we'll check if it's
 // at the dev webpack config is not accidentally run in a production environment
 if (process.env.NODE_ENV === 'production') {
   checkNodeEnv('development');
 }
-
-console.log('>>>>> STARTED WEBPACK.CONFIG.RENDERER (NOT .DLL) <<<<<<')
 
 const port = process.env.PORT || 1212;
 const manifest = path.resolve(webpackPaths.dllPath, 'renderer.json');
@@ -25,9 +28,15 @@ const skipDLLs =
   module.parent?.filename.includes('webpack.config.renderer.dev.dll') ||
   module.parent?.filename.includes('webpack.config.eslint');
 
-/**
- * Warn if the DLL is not built
- */
+
+cl(chalk.black.bgGreen(`>>>>> skipDLLs: ${skipDLLs} <<<<<<`))
+
+
+// OPEN QUESTIONS
+//   1) what is the benefit of having the DLLs?
+//   2) how is .erb/dll/renderer.json generated?
+
+
 if (
   !skipDLLs &&
   !(fs.existsSync(webpackPaths.dllPath) && fs.existsSync(manifest))
