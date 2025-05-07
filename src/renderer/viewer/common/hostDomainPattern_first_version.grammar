@@ -1,0 +1,13 @@
+
+@top PatternList { pattern* }
+
+pattern { (PatternHost | PatternDomain | Comment) separator? }
+
+@tokens {
+    PatternHost { $[a-zA-Z-] $[.a-zA-Z-]* }
+    PatternDomain { "." $[a-zA-Z-.]+ }
+    Comment { "#" ![\n]* }
+    separator { $[ ,\n]+ }
+}
+
+

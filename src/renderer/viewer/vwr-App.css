@@ -1,0 +1,217 @@
+
+
+/* pattern i found to force box-sizing: border-box
+   on all elements, including pseudo elements
+   see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+/* to override user agent's body css
+   note: name is body (not .body) because
+   body is an html element type,
+   not a class
+*/
+body {
+  padding: 0;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/* set styling for <input> elements where validity check fails */
+input:invalid {
+  color: red;
+}
+textarea:invalid {
+  color: red;
+}
+
+.errorText {
+  font-weight: bolder;
+  display: inline;
+}
+
+.bp4-button {
+  border-radius: 8px;
+}
+
+
+
+/* override default padding on sides of cell,
+   so that background color of cell contents does not 
+   cover up gridlines
+   (default padding value from blueprint is 10px)
+*/
+.bp4-table-cell {
+  padding-right: 2px;
+  padding-left: 4px;
+  padding-bottom: 2px;
+  padding-top: 0px;
+}
+
+/* override blueprint template for truncated format, to reduce space on left and right
+*/
+.bp4-table-truncated-format-text {
+  right: 1px;
+  left: 2px;
+  background-color: inherit;
+}
+
+
+
+/* css white-space:
+//               New lines	  Spaces and tabs   Text wrapping	End-of-line spaces
+// normal	       Collapse	    Collapse	        Wrap	        Remove
+// nowrap	       Collapse	    Collapse	        No wrap	      Remove
+// pre	         Preserve	    Preserve	        No wrap	      Preserve
+// pre-wrap	     Preserve	    Preserve	        Wrap	        Hang
+// pre-line	     Preserve	    Collapse	        Wrap	        Remove
+// break-spaces  Preserve	    Preserve	        Wrap	        Wrap
+*/
+
+/* keep these - they are used in TTable column definitions */
+.ttCellNoWrap  { white-space: nowrap; }
+.ttCellPreWrap { white-space: pre-wrap; }
+.ttCellPre     { white-space: pre; }
+
+
+
+
+/* keep - used in multiple instances in propMethods and TTableConfig propmethods */
+.ttCellMultiLineJSX {
+  padding-left: 5px;
+  padding-right: 5px;
+  position: static;
+  flex: auto;
+  overflow-x: auto;
+}
+
+/* WHY IS THIS HERE???? WHAT IS IT USED FOR??? */
+pre {
+  margin: 0;
+}
+
+
+
+.popupContainer {
+  padding: 0px;
+  margin: 0px;
+
+  /*min-height: 100px;*/
+
+  /* had been suitable for popup, but doesn't work for detail pane
+  max-height:  80vh;
+  max-width: 80vw;
+  */
+  
+  border-style: solid;
+  border-width: 4px;
+  border-color:  rgba(125, 188, 255);
+
+  /* overflow: hidden clips the corners of the child elements at the rounded border corners */
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.contentViewTitleBar {
+  flex: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  background-color: rgba(125, 188, 255);
+}
+
+.contentViewBody {
+  flex: auto;
+  padding: 0px;
+  padding-left: 0px;
+  /* old - commenting out because CellContent manages height/width now max-height: 900px; */
+  overflow: hidden;
+  white-space: pre;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: white;
+}
+
+
+.contentViewButtonBar {
+  flex: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  padding-top: 6px;
+  padding-left: 6px;
+  padding-bottom: 6px;
+  background-color: rgba(125, 188, 255);
+}
+
+.contentViewTitleText {
+  flex: auto;
+  overflow: hidden;
+}
+
+.contentViewButtonGroup {
+  padding-left: 10px;
+  flex: initial;
+  transform: scale(0.7);
+}
+
+
+.dialogLabelAndTextAreaDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+
+
+.flex_align_items_center {
+  align-items: center !important;
+}
+
+.padding_left_40px {
+  padding-left: 40px !important;
+}
+
+.scale_0p7 {
+  transform: scale(0.7) !important;
+}
+
+.width_fixed_100px {
+  min-width: 100px !important;
+  width:     100px !important;
+  max-width: 100px !important;
+}
+
+.padding_left_6px {
+  padding-left: 6px !important;
+}
+
+.colorDialogBar {
+  background-color: rgba(125, 188, 255, 0.6) !important;
+}
+
+
+
+
+
+/*
+  custom styling for blueprint Buttons in control group rows
+  min-height 100% allows button height to shrink to what would otherwise be the height of the control group
+  padding-top/bottom reduces it from blueprint's value of 5px
+*/
+.textViewButton {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  min-height: 100% !important;
+}

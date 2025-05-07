@@ -1,0 +1,26 @@
+{
+    "name": "@types/react-splitter-layout",
+    "version": "3.0.1",
+    "description": "TypeScript definitions for react-splitter-layout",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Markus Lasermann",
+            "url": "https://github.com/snaptags",
+            "githubUsername": "snaptags"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/react-splitter-layout"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/react": "*"
+    },
+    "typesPublisherContentHash": "2e796b6087080898c916bbdcb2eee5f81a5ab0aa1cbc5906fb96316504398d03",
+    "typeScriptVersion": "3.3"
+}

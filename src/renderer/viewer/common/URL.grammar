@@ -1,0 +1,18 @@
+
+@top patternList { line+ }
+
+line { HeaderLine | url "\n" }
+
+url { Scheme rest? }
+
+rest { Host Path? Args? }
+
+@tokens {
+    HeaderLine { $[(=] ![\n]* }
+    Scheme { ![/\n]+ "//" }
+    Host { ![/\n]+ }
+    Path { ![\n?#]+ }
+    Args { ![\n]+ }
+
+    @precedence { HeaderLine, Scheme, Path, Args}
+}
